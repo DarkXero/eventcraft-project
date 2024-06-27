@@ -1,4 +1,4 @@
-'use server'
+ 'use server'
 
 import { revalidatePath } from 'next/cache'
 
@@ -8,7 +8,7 @@ import Order from '@/lib/database/models/order.model'
 import Event from '@/lib/database/models/event.model'
 import { handleError } from '@/lib/utils'
 
-import { CreateUserParams, UpdateUserParams } from '@/types'
+import { CreateUserParams, UpdateUserParams } from '@/types/index'
 
 export async function createUser(user: CreateUserParams) {
   try {
@@ -23,7 +23,7 @@ export async function createUser(user: CreateUserParams) {
 
 export async function getUserById(userId: string) {
   try {
-    await connectToDatabase()
+    await connectToDatabase();
 
     const user = await User.findById(userId)
 
